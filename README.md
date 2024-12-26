@@ -7,3 +7,4 @@ You can reach me on my [email][email].
 
 [updatecli-website]: https://www.updatecli.io
 [fslabs-website]: https://www.fslabs.ca/
+[email]: mailto:gh@postu.la
