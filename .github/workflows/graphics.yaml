@@ -1,0 +1,31 @@
+name: Graphic s
+on:
+  schedule:
+    - cron: "15 03 1 * *"
+  workflow_dispatch:
+jobs:
+  readme-svg:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: checkout
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+      - uses: Platane/snk@e2cedf76a2c05b25d09a6428ded69727b497a700 # v3.4.1
+        id: badger-badger-snake-snake
+        name: Generate Snake
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            github-snake.svg
+            github-snake-dark.svg?palette=github-dark
+      - name: Commit Snake
+        continue-on-error: true
+        id: git-commit-snake
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "<>"
+          git add github-snake.svg
+          git add github-snake-dark.svg
+          git commit -m "chore: github-snake.svg - [skip actions]" github-snake.svg github-snake-dark.svg
+          git push origin ${{ env.GITHUB_REF_NAME }}
