@@ -1,0 +1,11 @@
+policies:
+  - name: Update Updatecli policies
+    policy: ghcr.io/updatecli/policies/updatecli/autodiscovery:0.7.0@sha256:6890c4b4093a80063f518101881098fab8211c986481641faaf797a9ad5a31c3
+    values:
+      - updatecli/values.d/scm.yaml
+      - updatecli/values.d/updatecli-compose.yaml
+  - name: Update githubactions
+    policy: ghcr.io/updatecli/policies/autodiscovery/githubaction:0.3.0@sha256:3b5425da2a2a2b89bb69463f1294704c33730358c66140efb93cab14b2868b06
+    values:
+      - updatecli/values.d/scm.yaml
+      - updatecli/values.d/githubactions.yaml

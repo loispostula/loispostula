@@ -1,0 +1,9 @@
+automerge: true
+scm:
+  commitusingapi: true
+  enabled: true
+  user: loisbot
+  email: bot@postu.la
+  owner: loispostula
+  repository: loispostula
+  branch: main

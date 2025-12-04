@@ -1,0 +1,24 @@
+name: updatecli
+on:
+  push:
+    branches: [main]
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+permissions: {}
+jobs:
+  updatecli:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3" # v6.0.0
+      - name: "Setup updatecli"
+        uses: "updatecli/updatecli-action@0f3a07c63831e51243e116ae638192e84e9379ff" # v2
+      - name: "Run updatecli"
+        run: "updatecli compose ${{ github.ref == 'refs/heads/main' && 'apply --clean-git-branches' || 'diff' }}"
+        env:
+          UPDATECLI_GITHUB_APP_CLIENT_ID: ${{ secrets.LOIS_BOT_APP_ID }}
+          UPDATECLI_GITHUB_APP_INSTALLATION_ID: ${{ secrets.LOIS_BOT_APP_INSTALLATION_ID }}
+          UPDATECLI_GITHUB_APP_PRIVATE_KEY: ${{ secrets.LOIS_BOT_PRIVATE_KEY }}
