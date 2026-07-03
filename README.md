@@ -1,7 +1,10 @@
-- I am the CIO [Foresight][fslabs-website] working mainly on the Infra, the CI-CD and the security.
-- On the side, I contribute to [Updatecli][updatecli-website], plus a few other stuff
+I’m the Chief Platform Officer at [Foresight Spatial Labs][fslabs-website].
 
-You can reach me on my [email][email] and you can read what I write [here](https://lois.postu.la).
+I build and operate the infrastructure and engineering systems behind reliable software delivery: self-hosted and cloud platforms, CI/CD, build systems, security, observability, and private customer deployments.
+
+On the side, I contribute to [Updatecli][updatecli-website] and build a few other things around reproducible infrastructure, automation, and developer workflows.
+
+You can reach me by [email][email], or read my occasional notes [here](https://lois.postu.la).
 
 [updatecli-website]: https://www.updatecli.io
 [fslabs-website]: https://www.fslabs.ca/
